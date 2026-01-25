@@ -1,19 +1,16 @@
 <main class="site-main hfeed">
     <div class="ct-container">
         <section>
-            <div class="entries ">
-                <article class="entry-card card-content">
-                    <a class="ct-media-container boundless-image" href="">
+            <div class="entries">
+                <article class="entry-card card-content" *ngFor="let movie of movies">
+                    <a class="ct-media-container boundless-image" href="{{movie.downloadLink}}">
                         <img class="attachment-medium_large size-medium_large wp-post-image" width="300" height="450"
-                            src="/The-raja-saab-1-200x300.png" alt="" style="aspect-ratio: 9/14;">
+                            [src]="'http://localhost:8080' + movie.posterPath" alt="" style="aspect-ratio: 9/14;">
                     </a>
                     <h2 class="entry-title">
-                        <a href="">The Raja saab</a>
+                        <a href="{{movie.downloadLink}}">{{ movie.title }}</a>
                     </h2>
-
                 </article>
-
-
             </div>
             <nav class="ct-pagination">
                 <div class="pagination-grp">

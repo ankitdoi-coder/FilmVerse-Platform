@@ -1,17 +1,26 @@
 package com.ajayMovies.ajayMoviesBackend.Mapper;
 
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.ajayMovies.ajayMoviesBackend.DTO.MovieDTO;
 import com.ajayMovies.ajayMoviesBackend.Entity.Movie;
+import com.ajayMovies.ajayMoviesBackend.Services.FileStorageService;
 
+@Component
 public class MovieMapper {
+    @Autowired
+    FileStorageService fileStorageService;
 
     //Maps the Movie DTO into Movie Entity
-    public Movie DtoToMovie(MovieDTO movieDTO){
+    public Movie DtoToMovie(MovieDTO movieDTO) throws IOException {
         Movie movie=new Movie();
 
         movie.setId(movieDTO.getId());
         movie.setTitle(movieDTO.getTitle());
-        movie.setPosterPath(movieDTO.getPosterPath());
+        movie.setPosterPath(fileStorageService.savePoster(movieDTO.getPosterImg()));
         movie.setDownloadLink(movieDTO.getDownloadLink());
 
         return movie;

@@ -11,7 +11,11 @@ export class Movie {
 
   constructor(private http:HttpClient){};
 
-  saveMovie(movie:Moviez):Observable<Moviez>{
+  saveMovie(movie:FormData):Observable<Moviez>{
     return this.http.post<Moviez>(`${this.baseUrl}/save-movie`,movie)
+  }
+
+  getAllMovies():Observable<Moviez[]>{
+    return this.http.get<Moviez[]>(`${this.baseUrl}/get-all-movies`)
   }
 }

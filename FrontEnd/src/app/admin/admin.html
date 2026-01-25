@@ -13,8 +13,8 @@
                 <input type="text" placeholder="Enter the download link" formControlName="downloadLink">
              </div>
              <div>
-                <label for="">Upload the poster</label>
-                <input type="text" placeholder="Enter poster URL" formControlName="poster">
+                <label for="">Poster Image</label>
+                <input type="file" (change)="onFileSelected($event)" accept="image/*">
              </div>
              <div>
                 <button type="submit">Add Movie</button>

@@ -17,6 +17,7 @@ import { Moviez } from '../Models/Moviez';
 export class Admin {
 
   movieFormGroup;
+  selectedFile: File | null = null;
 
   constructor(
     private fb:FormBuilder,
@@ -26,29 +27,29 @@ export class Admin {
   ){
     this.movieFormGroup=this.fb.group({
       title: ['', [Validators.required]],
-      poster: ['', [Validators.required]],
       downloadLink: ['', [Validators.required]],
     })
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
   submitForm() {
-    if (this.movieFormGroup.invalid) {
-      console.log("form data is invalid ")
+    if (this.movieFormGroup.invalid || !this.selectedFile) {
+      console.log("form data is invalid or no file selected")
       return;
     }
 
-    //at First Storing the Employee form data into a variable
+   
     const formValue = this.movieFormGroup.value;
-    const movieData:Moviez = {
-      title: formValue.title || '',
-      poster: formValue.poster || '',
-      downloadlink: formValue.downloadLink || '',
-    };
-
-
+    const formData = new FormData();
+    formData.append('title', formValue.title || '');
+    formData.append('posterImg', this.selectedFile);
+    formData.append('downloadLink', formValue.downloadLink || '');
 
     //call the save api here
-      this.movieService.saveMovie(movieData).subscribe({
+      this.movieService.saveMovie(formData).subscribe({
         next: () => this.router.navigate(['/']),
         error: err => console.error(err)
       });

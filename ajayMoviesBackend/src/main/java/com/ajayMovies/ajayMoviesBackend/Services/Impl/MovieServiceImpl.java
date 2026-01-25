@@ -1,5 +1,8 @@
 package com.ajayMovies.ajayMoviesBackend.Services.Impl;
 
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +20,22 @@ public class MovieServiceImpl  implements MovieService{
     @Autowired
     MovieMapper movieMapper;
 
-
     @Override
-    public Movie saveMovie(MovieDTO movieDTO) {
+    public Movie saveMovie(MovieDTO movieDTO) throws IOException {
         Movie savedMovie=movieRepo.save(movieMapper.DtoToMovie(movieDTO));
         return savedMovie;
+    }
+
+    @Override
+    public List<Movie> getAllMovies() throws IOException {
+        List<Movie> movies = movieRepo.findAll();
+        for (Movie movie : movies) {
+            if (movie.getPosterPath() != null && movie.getPosterPath().contains("uploads")) {
+                String fileName = movie.getPosterPath().substring(movie.getPosterPath().lastIndexOf("\\") + 1);
+                movie.setPosterPath("/movies/" + fileName);
+            }
+        }
+        return movies;
     }
     
 }
