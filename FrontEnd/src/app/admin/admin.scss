@@ -1,0 +1,115 @@
+section {
+    padding: 2rem 1rem;
+    min-height: 80vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.addMovieForm {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+}
+
+.addMovieForm div {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #1e293b;
+    border-radius: 5px;
+    background: #020617;
+    color: #fff;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+button {
+    background: #19ff00;
+    color: #000;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: #17e600;
+}
+
+// Responsive
+@media (max-width: 768px) {
+    section {
+        padding: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .addMovieForm {
+        padding: 1.5rem;
+    }
+
+    input {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .addMovieForm {
+        padding: 1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}

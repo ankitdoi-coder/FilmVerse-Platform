@@ -6,7 +6,13 @@
       <div class="container-fluid">
         <span><img src="/NEWlogo.png" alt="Logo" class="logo"></span>
 
-        <ul class="navbar-nav mx-auto">
+        <!-- Hamburger button for mobile -->
+        <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Desktop menu -->
+        <ul class="navbar-nav mx-auto d-none d-lg-flex">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#">18+</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Bollywood</a></li>
@@ -15,7 +21,22 @@
           <li class="nav-item"><a class="nav-link" href="#">TV Show</a></li>
         </ul>
 
-        <div class="input-group w-25">
+        <!-- Mobile menu overlay -->
+        <div class="mobile-menu-overlay" [class.active]="menuOpen">
+          <button class="close-btn" (click)="closeMenu()" aria-label="Close menu">
+            <span class="close-icon">&times;</span>
+          </button>
+          <ul class="mobile-menu">
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">Home</a></li>
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">18+</a></li>
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">Bollywood</a></li>
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">Dual Audio</a></li>
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">Web Series</a></li>
+            <li class="mobile-menu-item"><a class="mobile-menu-link" href="#" (click)="closeMenu()">TV Show</a></li>
+          </ul>
+        </div>
+
+        <div class="input-group search-container">
           <input type="text" class="form-control bg-dark text-white border-secondary" placeholder="Search">
           <button class="btn btn-outline-light"><img src="/search-icon.svg" alt="Search"
               style="width: 16px; height: 16px;"></button>
@@ -30,43 +51,45 @@
         <input type="text" class="big-search form-control" placeholder="Search movies, series, hindi">
       </div>
 
-      <!-- Action Buttons -->
-      <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
-        <button class="action-btn btn-anime topbtn">
-          <i class="fa-solid fa-rocket"></i> ANIME</button>
-        <button class="action-btn btn-desi topbtn">
-          <i class="fa-solid fa-pepper-hot"></i>DESI JUNCTION</button>
-        <button class="action-btn btn-telegram topbtn">
-          <i class="fa-brands fa-telegram"></i> JOIN TELEGRAM</button>
-        <button class="action-btn btn-download topbtn"><i class="fa fa-eye"></i>
-          HOW TO DOWNLOAD</button>
-      </div>
+      <section style="margin-bottom: 50px;">
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-center  mb-4 flex-wrap">
+                <button class="action-btn btn-anime topbtn">
+                    <i class="fa-solid fa-rocket"></i> ANIME</button>
+                <button class="action-btn btn-desi topbtn">
+                    <i class="fa-solid fa-pepper-hot"></i>DESI JUNCTION</button>
+                <button class="action-btn btn-telegram topbtn">
+                    <i class="fa-brands fa-telegram"></i> JOIN TELEGRAM</button>
+                <button class="action-btn btn-download topbtn"><i class="fa fa-eye"></i>
+                    HOW TO DOWNLOAD</button>
+            </div>
 
-      <!-- Categories -->
-      <div class="category-wrap">
-        <button class="cat-btn topbtn">18+</button>
-        <button class="cat-btn topbtn">BANGALI</button>
-        <button class="cat-btn topbtn">BOLLYWOOD</button>
-        <button class="cat-btn topbtn">CHINESE</button>
-        <button class="cat-btn topbtn">DUAL AUDIO</button>
-        <button class="cat-btn topbtn">ENGLISH</button>
-        <button class="cat-btn topbtn">GUJARATI</button>
-        <button class="cat-btn topbtn">HINDI</button>
-        <button class="cat-btn topbtn">HOLLYWOOD</button>
-        <button class="cat-btn topbtn">KANNADA MOVIE</button>
-        <button class="cat-btn topbtn">KOREAN</button>
-        <button class="cat-btn topbtn">MALAYALAM</button>
-        <button class="cat-btn topbtn">MARATHI</button>
-        <button class="cat-btn topbtn">ODIA</button>
-        <button class="cat-btn topbtn">PUNJABI</button>
-        <button class="cat-btn topbtn">SOUTH INDIAN</button>
-        <button class="cat-btn topbtn">TAMIL</button>
-        <button class="cat-btn topbtn">TELUGU</button>
-        <button class="cat-btn topbtn">TV SHOW</button>
-        <button class="cat-btn topbtn">URDU</button>
-        <button class="cat-btn topbtn">WEB SERIES</button>
-      </div>
+            <!-- Categories -->
+            <div class="category-wrap">
+                <button class="cat-btn topbtn">18+</button>
+                <button class="cat-btn topbtn">BANGALI</button>
+                <button class="cat-btn topbtn">BOLLYWOOD</button>
+                <button class="cat-btn topbtn">CHINESE</button>
+                <button class="cat-btn topbtn">DUAL AUDIO</button>
+                <button class="cat-btn topbtn">ENGLISH</button>
+                <button class="cat-btn topbtn">GUJARATI</button>
+                <button class="cat-btn topbtn">HINDI</button>
+                <button class="cat-btn topbtn">HOLLYWOOD</button>
+                <button class="cat-btn topbtn">KANNADA MOVIE</button>
+                <button class="cat-btn topbtn">KOREAN</button>
+                <button class="cat-btn topbtn">MALAYALAM</button>
+                <button class="cat-btn topbtn">MARATHI</button>
+                <button class="cat-btn topbtn">ODIA</button>
+                <button class="cat-btn topbtn">PUNJABI</button>
+                <button class="cat-btn topbtn">SOUTH INDIAN</button>
+                <button class="cat-btn topbtn">TAMIL</button>
+                <button class="cat-btn topbtn">TELUGU</button>
+                <button class="cat-btn topbtn">TV SHOW</button>
+                <button class="cat-btn topbtn">URDU</button>
+                <button class="cat-btn topbtn">WEB SERIES</button>
+            </div>
 
+        </section>
     </section>
 
     <router-outlet></router-outlet>

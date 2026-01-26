@@ -10,8 +10,17 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('FrontEnd');
   activeFooterLink = 'Home';
+  menuOpen = false;
 
   setActiveFooterLink(linkName: string) {
     this.activeFooterLink = linkName;
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 }

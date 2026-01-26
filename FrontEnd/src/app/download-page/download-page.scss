@@ -76,11 +76,89 @@ img {
     flex: 1;
     /* Takes up approx 25% width */
     min-width: 300px;
+    border-left: 1px solid rgba(224, 229, 235, 0.8);
+    padding-left: 20px;
+    
+
+}
+
+.ct-sidebar {
+    position: sticky;
+    top: 80px;
 }
 
 @media (max-width: 900px) {
     .ct-container {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .ct-container {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .entry-content h3,
+    .entry-content h4 {
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .entry-content p {
+        font-size: 16px;
+    }
+
+    .dwd-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+        min-width: 180px;
+    }
+
+    .ct-comment-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .ct-comment-content::before {
+        display: none; // Hide speech bubble on mobile
+    }
+}
+
+@media (max-width: 480px) {
+    .ct-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .entry-content h3,
+    .entry-content h4 {
+        font-size: 14px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    .entry-content p {
+        font-size: 14px;
+    }
+
+    .dwd-button {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        min-width: 160px;
+    }
+
+    .ct-breadcrumbs {
+        font-size: 0.75rem;
     }
 }
 
@@ -332,7 +410,7 @@ hr {
 }
 
 .related-entry-title {
-   margin: 0;
+    margin: 0;
     font-size: 18px;
     text-transform: capitalize;
     font-weight: 700;
@@ -352,12 +430,15 @@ hr {
    ========================================= */
 .ct-widget {
     margin-bottom: 30px;
-    background: #0f0f0f;
+    
+    padding: 15px;
+    border-bottom: 1px solid #1f1f1f;
 }
 
 /* Search Widget */
 .wp-block-search__inside-wrapper {
     display: flex;
+    gap: 6px;
 }
 
 .wp-block-search__input {
@@ -367,29 +448,35 @@ hr {
     padding: 10px;
     flex-grow: 1;
     border-radius: 4px 0 0 4px;
+    height: 40px;
+    font-size: 14px;
 }
 
 .wp-block-search__button {
-    background: var(--accent-red);
-    /* Red Button */
     color: white;
     border: none;
     padding: 10px 20px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
+    border-radius: 5px;
+    height: 40px;
+    min-width: 90px;
+    background: #ff0000;
 }
 
 .wp-block-search__label,
 .wp-block-categories__label {
-    display: none;
-    /* Often hidden in these designs, or style as H4 */
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 /* Recent Posts Widget */
 .wp-block-latest-posts {
     list-style: disc;
-    padding-left: 20px !important;
+    padding-left: 18px !important;
     color: #666;
 }
 
@@ -397,11 +484,15 @@ hr {
     margin-bottom: 12px;
     border-bottom: 1px solid #222;
     padding-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-bottom: 10px;
 }
 
 .wp-block-latest-posts a {
-    color: white;
-    font-size: 20px;
+    color: #e6e6e6;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 .wp-block-latest-posts a:hover {
@@ -526,6 +617,7 @@ select {
     object-fit: cover;
     display: block;
 }
+
 .entry-card:hover .ct-media-container {
     transform: scale(1.05);
     box-shadow: 0 0 28px rgba(255, 122, 0, 0.9);

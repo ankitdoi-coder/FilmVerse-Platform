@@ -34,11 +34,12 @@
 .ct-container {
     max-width: 1500px;
     margin: auto;
+    padding: 0 1rem; // Add padding for mobile
 }
 
 .entries {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 28px;
 }
 
@@ -87,7 +88,7 @@
     font-size: 18px;
     text-transform: capitalize;
     font-weight: 700;
-    line-height: 4.4;
+    line-height: 2;
 }
 
 .entry-title a {
@@ -107,7 +108,7 @@
     font-weight: 600;
     color: #ffffff;
     justify-content: space-between;
-    margin: 25px 60px;
+    margin: 25px 2rem; // Changed from 60px to 2rem for responsiveness
 }
 
 .page-numbers:hover {
@@ -158,15 +159,352 @@
     border: 3px solid rgba(61, 62, 63, 0.69);
 }
 
+// Pagination responsive
+@media (max-width: 768px) {
+    .ct-pagination {
+        margin: 20px 1rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pagination-grp {
+        grid-column: 1;
+        order: 2;
+    }
+
+    .next {
+        grid-column: 1;
+        justify-self: center;
+        order: 3;
+        padding: 0px 20px;
+    }
+
+    .page-numbers {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        margin: 3px;
+    }
+
+    .current {
+        width: 35px;
+        margin: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ct-pagination {
+        margin: 15px 0.5rem;
+    }
+
+    .next {
+        padding: 0px 15px;
+        font-size: 12px;
+    }
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .entries {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 24px;
     }
 }
 
 @media (max-width: 768px) {
     .entries {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .entries {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 16px;
+    }
+}
+
+ .body {
+     background: radial-gradient(circle at top, #0c1430, #050816);
+     color: #fff;
+     font-family: "Segoe UI", sans-serif;
+ }
+
+ .navbar {
+     background: linear-gradient(to right, #0f172a, #020617);
+     border-bottom: 1px solid #1e293b;
+ }
+
+ .logo {
+     height: 65px;
+     width: auto;
+     filter: none;
+ }
+
+ .main-search input::placeholder {
+     font-size: 20px;
+     font-weight: 600;
+     color: #9ca3af;
+ }
+
+ .nav-link {
+     font-size: 15px;
+     font-weight: 800;
+     color: #fff !important;
+     margin: 0 6px;
+ }
+
+ .nav-link.active {
+     border-bottom: 2px solid #fff;
+ }
+
+
+ .main-search input {
+     background: #020617;
+     border: 1px solid #1e293b;
+     color: #fff;
+     padding: 14px;
+ }
+
+ .main-search input::placeholder {
+     color: #9ca3af;
+ }
+
+ .action-btn {
+     font-size: 17px;
+     min-height: 44px; // Touch-friendly
+     padding: 12px 24px;
+ }
+
+ .topbtn,
+ .lools a {
+     padding: 12px 24px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     margin: 4px 4px;
+     transition-duration: 0.4s;
+     cursor: pointer;
+     border-radius: 15%;
+     box-shadow: 0px 0px 32px -10px #fe0000;
+     text-transform: uppercase;
+     color: #fff;
+     font-size: 14px;
+     font-weight: 600;
+     min-height: 44px;
+     min-width: 44px;
+ }
+
+ .btn-anime {
+     background-color: #44b81a;
+ }
+
+
+
+ .btn-desi {
+     background-color: red;
+ }
+
+ .btn-telegram {
+     background-color: #009de1;
+ }
+
+ .btn-download {
+     background-color: #df9a17;
+ }
+
+ .category-wrap {
+     margin-top: 20px;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 12px;
+     justify-content: center;
+ }
+
+ .cat-btn {
+     background: #e11d48;
+     color: #fff;
+     font-weight: 700;
+     padding: 10px 16px;
+     border-radius: 10px;
+     font-size: 14px;
+     border: none;
+     box-shadow: 0 0 12px rgba(225, 29, 72, 0.5);
+     min-height: 44px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .btn img {
+     filter: brightness(0) invert(1);
+ }
+
+ .fa-rocket::before {
+     content: "\f135";
+ }
+
+ .fa-solid,
+ .fas {
+     font-weight: 900;
+     margin-right: 5px;
+ }
+
+ .rocket-icon::before {
+     content: "🚀";
+     margin-right: 5px;
+ }
+
+
+ .ct-footer {
+     background-color: #15151e;
+     display: block;
+     unicode-bidi: isolate;
+ }
+
+ .footer-menu-inline {
+     padding: 8px;
+     border-top: 1px solid white;
+     border-bottom: 1px solid white;
+     margin-left: 140px;
+     
+ }
+.ct-footer .container {
+    border-top: 1px solid #a19393;
+    border-bottom: 1px solid #a19393;
+}
+ .ct-footer .row .col-sm-6 {
+    margin-top: 15px;
+ }
+
+ .menu {
+     display: flex;
+     gap: 25px;
+     font-weight: 700;
+     font-size: 17px;
+ }
+
+ .menu li.menu-item,
+ .menu li.page_item {
+     display: flex;
+     align-items: center;
+ }
+
+ nav[class*=menu] .ct-menu-link {
+     color: #ffffff;
+     --theme-icon-color: #ffffff;
+ }
+
+ nav[class*=menu] li[class*=current-menu-]>.ct-menu-link,
+ nav[class*=menu] li[class*=current-menu-]>.ct-sub-menu-parent {
+     color: #ffffff;
+ }
+
+ .ct-menu-link {
+     display: flex;
+     align-items: center;
+     position: relative;
+     width: 100%;
+     border-radius: var(--menu-item-radius, inherit);
+ }
+ .ct-footer a {
+     color: #ffffff !important;
+     text-decoration: none !important;
+     border-bottom: none !important;
+ }
+
+ .ct-footer a.active {
+     color: #19ff00 !important;
+ }
+
+ .ct-menu-link,
+ .ct-menu-link:hover,
+ .ct-menu-link:active,
+ .ct-menu-link:focus {
+     color: #ffffff !important;
+     text-decoration: none !important;
+     border-bottom: none !important;
+ }
+
+ .ct-menu-link.active {
+     color: #19ff00 !important;
+ }
+
+ .nav-link,
+.ct-menu-link {
+    border-bottom: none !important;
+}
+ .ct-footer [data-column]>[data-id] {
+     margin: 0px 0px 20px 0px;
+ }
+
+ .ct-footer-copyright {
+     color: #feff;
+ }
+
+ .ct-footer-copyright p {
+     font-size: 18px;
+     font-weight: 500;
+     text-align: end;
+ }
+
+// General responsive improvements
+@media (max-width: 768px) {
+    .ct-container {
+        padding: 0 0.5rem;
+    }
+
+    .main-search input {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .main-search input::placeholder {
+        font-size: 16px;
+    }
+
+    .action-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .topbtn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .cat-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .entry-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-search input::placeholder {
+        font-size: 14px;
+    }
+
+    .action-btn {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .topbtn {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+
+    .cat-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .entry-title {
+        font-size: 14px;
     }
 }

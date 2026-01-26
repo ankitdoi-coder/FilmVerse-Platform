@@ -1,25 +1,25 @@
 <section>
-    <div class="container">
-        <h1>Admin Panel</h1>
-        <div class="addMovieForm">
-            <form [formGroup]="movieFormGroup" (ngSubmit)="submitForm()">
-             <div>
-                <label for="">Movie Title</label>
-                <input type="text" placeholder="Enter the movie Title " formControlName="title">
-             </div>
+   <div class="container">
+      <h1>Admin Panel</h1>
+      <div class="addMovieForm">
+         <form [formGroup]="movieFormGroup" (ngSubmit)="submitForm()">
+            <div>
+               <label for="">Movie Title</label>
+               <input type="text" placeholder="Enter the movie Title " formControlName="title">
+            </div>
 
-             <div>
-                <label for="">Download Link</label>
-                <input type="text" placeholder="Enter the download link" formControlName="downloadLink">
-             </div>
-             <div>
-                <label for="">Poster Image</label>
-                <input type="file" (change)="onFileSelected($event)" accept="image/*">
-             </div>
-             <div>
-                <button type="submit">Add Movie</button>
-             </div>
-            </form>
-        </div>
-    </div>
+            <div>
+               <label for="">Download Link</label>
+               <input type="text" placeholder="Enter the download link" formControlName="downloadLink">
+            </div>
+            <div>
+               <label for="">Poster Image</label>
+               <input type="file" (change)="onFileSelected($event)" accept="image/*">
+            </div>
+            <div>
+               <button type="submit">Add Movie</button>
+            </div>
+         </form>
+      </div>
+   </div>
 </section>
