@@ -3,19 +3,90 @@
       <h1>Admin Panel</h1>
       <div class="addMovieForm">
          <form [formGroup]="movieFormGroup" (ngSubmit)="submitForm()">
+            <!-- Basic Info -->
             <div>
-               <label for="">Movie Title</label>
-               <input type="text" placeholder="Enter the movie Title " formControlName="title">
+               <label for="title">Movie Title</label>
+               <input type="text" id="title" placeholder="Enter the movie title" formControlName="title">
             </div>
 
             <div>
-               <label for="">Download Link</label>
-               <input type="text" placeholder="Enter the download link" formControlName="downloadLink">
+               <label for="subHead_MovieName">Sub Heading Movie Name</label>
+               <input type="text" id="subHead_MovieName" placeholder="Enter the sub heading movie name" formControlName="subHead_MovieName">
+            </div>
+
+            <div>
+               <label for="subHead_type">Sub Heading Type</label>
+               <input type="text" id="subHead_type" placeholder="Enter the sub heading type" formControlName="subHead_type">
+            </div>
+
+            <!-- Movie Info -->
+            <div>
+               <label for="movieInfo_movieName">Movie Info Name</label>
+               <input type="text" id="movieInfo_movieName" placeholder="Enter the movie info name" formControlName="movieInfo_movieName">
+            </div>
+
+            <div>
+               <label for="movieInfo_ImbdRating">IMBD Rating</label>
+               <input type="text" id="movieInfo_ImbdRating" placeholder="Enter the IMBD rating" formControlName="movieInfo_ImbdRating">
+            </div>
+
+            <div>
+               <label for="movieInfo_langauge">Language</label>
+               <input type="text" id="movieInfo_langauge" placeholder="Enter the language" formControlName="movieInfo_langauge">
+            </div>
+
+            <div>
+               <label for="movieInfo_releaseYear">Release Year</label>
+               <input type="text" id="movieInfo_releaseYear" placeholder="Enter the release year" formControlName="movieInfo_releaseYear">
+            </div>
+
+            <div>
+               <label for="movieInfo_quality">Quality</label>
+               <input type="text" id="movieInfo_quality" placeholder="Enter the quality (480p, 720p, 1080p)" formControlName="movieInfo_quality">
+            </div>
+
+            <div>
+               <label for="movieInfo_size">Size</label>
+               <input type="text" id="movieInfo_size" placeholder="Enter the size" formControlName="movieInfo_size">
+            </div>
+
+            <div>
+               <label for="movieInfo_Format">Format</label>
+               <input type="text" id="movieInfo_Format" placeholder="Enter the format" formControlName="movieInfo_Format">
+            </div>
+
+            <!-- Synopsis -->
+            <div>
+               <label for="movieSynopsis">Movie Synopsis</label>
+               <textarea id="movieSynopsis" placeholder="Enter the movie synopsis" formControlName="movieSynopsis"></textarea>
+            </div>
+
+            <!-- Download Links -->
+            <div>
+               <label for="downloadLink480">Download Link 480p</label>
+               <input type="text" id="downloadLink480" placeholder="Enter the 480p download link" formControlName="downloadLink480">
+            </div>
+
+            <div>
+               <label for="downloadLink720">Download Link 720p</label>
+               <input type="text" id="downloadLink720" placeholder="Enter the 720p download link" formControlName="downloadLink720">
+            </div>
+
+            <div>
+               <label for="downloadLink1080">Download Link 1080p</label>
+               <input type="text" id="downloadLink1080" placeholder="Enter the 1080p download link" formControlName="downloadLink1080">
+            </div>
+
+            <!-- Poster Image -->
+            <div>
+               <label for="posterImg">Poster Image</label>
+               <input type="file" id="posterImg" (change)="onFileSelectedPoster($event)" accept="image/*">
             </div>
             <div>
-               <label for="">Poster Image</label>
-               <input type="file" (change)="onFileSelected($event)" accept="image/*">
+               <label for="screenshots">Screenshots</label>
+               <input type="file" multiple id="screenshots" (change)="onFileSelectedSS($event)" accept="image/*">
             </div>
+
             <div>
                <button type="submit">Add Movie</button>
             </div>

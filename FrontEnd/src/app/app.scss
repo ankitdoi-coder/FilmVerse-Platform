@@ -9,6 +9,7 @@
      border-bottom: 1px solid #1e293b;
      position: sticky;
      top: 0;
+     z-index: 9999;
  }
 
  .logo {
@@ -198,14 +199,16 @@
      border-top: 1px solid white;
      border-bottom: 1px solid white;
      margin-left: 0; // Changed from 140px to 0 for responsiveness
-     
+
  }
-.ct-footer .container {
-    border-top: 1px solid #a19393;
-    border-bottom: 1px solid #a19393;
-}
+
+ .ct-footer .container {
+     border-top: 1px solid #a19393;
+     border-bottom: 1px solid #a19393;
+ }
+
  .ct-footer .row .col-sm-6 {
-    margin-top: 15px;
+     margin-top: 15px;
  }
 
  .menu {
@@ -238,6 +241,7 @@
      width: 100%;
      border-radius: var(--menu-item-radius, inherit);
  }
+
  .ct-footer a {
      color: #ffffff !important;
      text-decoration: none !important;
@@ -262,9 +266,10 @@
  }
 
  .nav-link,
-.ct-menu-link {
-    border-bottom: none !important;
-}
+ .ct-menu-link {
+     border-bottom: none !important;
+ }
+
  .ct-footer [data-column]>[data-id] {
      margin: 0px 0px 20px 0px;
  }
@@ -279,8 +284,8 @@
      text-align: end;
  }
 
-// Footer responsive
-@media (max-width: 768px) {
+ // Footer responsive
+ @media (max-width: 768px) {
      .menu {
          flex-direction: column;
          gap: 15px;
@@ -311,8 +316,8 @@
      }
  }
 
-// Media queries for responsive design
-@media (max-width: 991px) {
+ // Media queries for responsive design
+ @media (max-width: 991px) {
      .navbar-toggler {
          display: block;
      }
