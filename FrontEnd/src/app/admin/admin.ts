@@ -17,8 +17,8 @@ import { Moviez } from '../Models/Moviez';
 export class Admin {
 
   movieFormGroup;
-  selectedFilePoster: File | null = null;
-  selectedFileSS: File[] = [];
+  poster: File | null = null;
+  screenShots: File[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -45,55 +45,16 @@ export class Admin {
   }
 
   onFileSelectedPoster(event: any) {
-    this.selectedFilePoster = event.target.files[0];
+    this.poster = event.target.files[0];
   }
   onFileSelectedSS(event: any) {
-    this.selectedFileSS = Array.from(event.target.files);
+    this.screenShots = Array.from(event.target.files);
   }
 
-  // submitForm() {
-  //   if (this.movieFormGroup.invalid || !this.selectedFilePoster || this.selectedFileSS.length === 0) {
-  //     console.log("form data is invalid or no file selected")
-  //     return;
-  //   }
-
-
-  //   const formValue = this.movieFormGroup.value;
-  //   const formData = new FormData();
-  //   formData.append('title', formValue.title || '');
-  //   formData.append('subHead_MovieName', formValue.subHead_MovieName || '');
-  //   formData.append('subHead_type', formValue.subHead_type || '');
-  //   formData.append('movieInfo_movieName', formValue.movieInfo_movieName || '');
-  //   formData.append('movieInfo_ImbdRating', formValue.movieInfo_ImbdRating || '');
-  //   formData.append('movieInfo_langauge', formValue.movieInfo_langauge || '');
-  //   formData.append('movieInfo_releaseYear', formValue.movieInfo_releaseYear || '');
-  //   formData.append('movieInfo_quality', formValue.movieInfo_quality || '');
-  //   formData.append('movieInfo_size', formValue.movieInfo_size || '');
-  //   formData.append('movieInfo_Format', formValue.movieInfo_Format || '');
-  //   formData.append('movieSynopsis', formValue.movieSynopsis || '');
-  //   formData.append('downloadLink480', formValue.downloadLink480 || '');
-  //   formData.append('downloadLink720', formValue.downloadLink720 || '');
-  //   formData.append('downloadLink1080', formValue.downloadLink1080 || '');
-  //   formData.append('posterImg', this.selectedFilePoster);
-    
-  //   // Append all screenshot files
-  //   this.selectedFileSS.forEach((file, index) => {
-  //     formData.append(`screenshots`, file);
-  //   });
-
-  //   //call the save api here
-  //   this.movieService.saveMovie(formData).subscribe({
-  //     next: () => this.router.navigate(['/']),
-  //     error: err => console.error(err)
-  //   });
-
-  // }
-
-// src/app/admin/admin.ts
 
 submitForm() {
   // Debugging: If this block hits, the form is invalid. Check your console.
-  if (this.movieFormGroup.invalid || !this.selectedFilePoster || this.selectedFileSS.length === 0) {
+  if (this.movieFormGroup.invalid || !this.poster || this.screenShots.length === 0) {
     console.error("Form is invalid. Please check the following fields:");
     // This will help you find WHICH field is invalid causing the 'no request' issue
     Object.keys(this.movieFormGroup.controls).forEach(key => {
@@ -107,7 +68,7 @@ submitForm() {
 
   const formValue = this.movieFormGroup.value;
 
-  // 1. Create a Javascript Object matching your MovieDTO
+  // 1. Create a Javascript Object matching your MovieDTO to send the Normal form text
   const movieData = {
     title: formValue.title,
     subHead_MovieName: formValue.subHead_MovieName,
@@ -125,6 +86,8 @@ submitForm() {
     downloadLink1080: formValue.downloadLink1080
   };
 
+
+  //new form Data For Sending it 
   const formData = new FormData();
 
   // 2. Append the JSON object as a Blob with type 'application/json'
@@ -133,10 +96,10 @@ submitForm() {
 
   // 3. Append the Poster
   // Key must be 'poster' to match @RequestPart("poster") (Changed from 'posterImg')
-  formData.append('poster', this.selectedFilePoster);
+  formData.append('poster', this.poster);
 
   // 4. Append Screenshots
-  this.selectedFileSS.forEach((file) => {
+  this.screenShots.forEach((file) => {
     formData.append('screenshots', file);
   });
 

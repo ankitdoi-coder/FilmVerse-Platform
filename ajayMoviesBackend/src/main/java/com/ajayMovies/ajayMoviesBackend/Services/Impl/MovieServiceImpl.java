@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ajayMovies.ajayMoviesBackend.DTO.MovieDTO;
 import com.ajayMovies.ajayMoviesBackend.Entity.Movie;
@@ -21,8 +22,8 @@ public class MovieServiceImpl  implements MovieService{
     MovieMapper movieMapper;
 
     @Override
-    public Movie saveMovie(MovieDTO movieDTO) throws IOException {
-        Movie savedMovie=movieRepo.save(movieMapper.DtoToMovie(movieDTO));
+    public Movie saveMovie(MovieDTO movieDTO,MultipartFile poster,List<MultipartFile> screenshots) throws IOException {
+        Movie savedMovie=movieRepo.save(movieMapper.DtoToMovie(movieDTO,poster,screenshots));
         return savedMovie;
     }
 

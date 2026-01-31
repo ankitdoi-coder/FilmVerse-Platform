@@ -1,7 +1,7 @@
 package com.ajayMovies.ajayMoviesBackend.DTO;
 
-import org.springframework.web.multipart.MultipartFile;
-import java.util.*;
+// import org.springframework.web.multipart.MultipartFile;
+// import java.util.*;
 import lombok.Data;
 
 
@@ -11,8 +11,8 @@ public class MovieDTO {
     private Long id;
     private String title;
     private String posterPath;
-    private MultipartFile posterImg;
-    private List<MultipartFile> screenshots;
+    // private MultipartFile posterImg;
+    // private List<MultipartFile> screenshots;
 
     private String subHead_MovieName;
     private String subHead_type;

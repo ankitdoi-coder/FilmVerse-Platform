@@ -8,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -28,9 +27,13 @@ public class MovieController {
     MovieService movieService;  
     
     @PostMapping(value = "/save-movie", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> saveMovie(@ModelAttribute MovieDTO movieDTO) {
+    public ResponseEntity<?> saveMovie(
+        @RequestPart("movie") MovieDTO movieDTO,
+        @RequestPart("poster") MultipartFile poster,
+        @RequestPart("screenshots") List<MultipartFile> screenshots
+    ) {
         try {
-            Movie movie = movieService.saveMovie(movieDTO);
+            Movie movie = movieService.saveMovie(movieDTO,poster,screenshots);
             return ResponseEntity.ok(movie);
         } catch (IllegalArgumentException | IllegalStateException | IOException e) {
             return ResponseEntity.status(500).body("Error saving movie: " + e.getMessage());
