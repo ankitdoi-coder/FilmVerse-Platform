@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Movie {
   private baseUrl="http://localhost:8080/api";
-
+  
   constructor(private http:HttpClient){};
 
   saveMovie(movie:FormData):Observable<Moviez>{
