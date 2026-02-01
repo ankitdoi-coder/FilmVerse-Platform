@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../Services/movie';
 import { Moviez } from '../Models/Moviez';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,12 @@ export class Home implements OnInit {
 
   movies: Moviez[] = [];
 
-  constructor(private movieService: Movie) {}
+  movieId:number | null=null;
 
+
+  constructor(private movieService: Movie, private router: Router) {}
+
+  //loads movies on page Load
   ngOnInit() {
     this.movieService.getAllMovies().subscribe({
       next: (data) => this.movies = data,
@@ -22,4 +28,8 @@ export class Home implements OnInit {
     });
   }
 
+  //get Movie data on Click Movie Card and route to the download page
+  openMovie(movieId:number){
+    this.router.navigate(['/download',movieId]);
+  }
 }

@@ -18,4 +18,8 @@ export class Movie {
   getAllMovies():Observable<Moviez[]>{
     return this.http.get<Moviez[]>(`${this.baseUrl}/get-all-movies`)
   }
+
+  getMovieById(id:any):Observable<Moviez>{
+    return this.http.get<Moviez>(`${this.baseUrl}/get-by-id/${id}`)
+  }
 }

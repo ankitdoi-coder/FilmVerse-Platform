@@ -8,10 +8,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ajayMovies.ajayMoviesBackend.DTO.MovieDTO;
@@ -49,5 +51,15 @@ public class MovieController {
             return ResponseEntity.status(500).body("Error while Fething Movies: "+e.getMessage());
         }
         
+    }
+
+    @GetMapping("/get-by-id/{id}")
+    public ResponseEntity<?> getMovieById(@PathVariable Long id){
+        try{
+            Movie movie=movieService.getMovieByID(id);
+            return ResponseEntity.ok(movie);
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Error while fetching Movies:" +e.getMessage());
+        }
     }
 }

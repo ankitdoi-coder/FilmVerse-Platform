@@ -38,52 +38,59 @@
                             <meta itemprop="url" content="https://movies4u.pk/the-raja-saab-2026-hindi-hq-hdtc-1080p/">
                         </span> </nav>
 
-                    <h1 class="page-title" itemprop="headline">The Raja Saab 2026 [Hindi + Tamil + Telugu] HQ HDTC 1080p
-                    </h1>
+                    <h1 class="page-title" itemprop="headline">{{movie.title}}</h1>
                 </header>
             </div>
 
 
             <div class="entry-content is-layout-flow">
-                <p><strong>The Raja Saab (2026)</strong> HQ HDTC Hindi Full Movie and available in
-                    <strong>480p</strong>&nbsp;&amp;&nbsp;<strong>720p</strong>&nbsp;&amp;&nbsp;<strong>1080p</strong>.
-                    This movie is based on&nbsp;<strong>Comedy, Horror, Fantasy</strong>&nbsp;and available
-                    in&nbsp;<strong>Hindi.</strong>
+                <p><strong>{{movie.subHead_MovieName}}</strong> HQ HDTC Hindi Full {{movie.subHead_type}} and available
+                    in
+                    <strong>480p{{movie.movieInfo_quality}}</strong>.
+                    This movie is based on&nbsp;<strong>{{movie.subHead_type}}</strong>&nbsp;and available
+                    in&nbsp;<strong>{{movie.movieInfo_langauge}}</strong>
                 </p>
-                <div class="code-block code-block-3"
+                <!-- <div class="code-block code-block-3"
                     style="margin: 8px auto; text-align: center; display: block; clear: both;">
                     <div>
-                        <script data-cfasync="false" async="" type="text/javascript"
-                            src="//jo.cashooshut.com/tJmk3T7CP8XsD/133562"></script>
+                        
                     </div>
-                </div>
+                </div> -->
 
                 <h3><strong>Movie Info:</strong></h3>
-                <p><strong>IMDb Rating:- /10</strong><br>
-                    <strong>Movie Name:&nbsp;</strong>The Raja Saab<br>
-                    <strong>Language:&nbsp;</strong>Hindi – LiNE&nbsp; [ Tamil + Telugu]<br>
-                    <strong>Released Year: </strong>2026<br>
-                    <strong>Quality:&nbsp;</strong>480p || 720p || 1080p – HQ HDTC<br>
-                    <strong>Size:&nbsp;</strong>550MB || 890MB / 1.9GB || 3.4GB<br>
-                    <strong>Format:&nbsp;</strong>MKV
+                <p><strong>IMDb Rating:- {{movie.movieInfo_ImbdRating}}</strong><br>
+                    <strong>Movie Name:&nbsp;</strong>{{movie.movieInfo_movieName}}<br>
+                    <strong>Language:&nbsp;</strong>{{movie.movieInfo_langauge}}<br>
+                    <strong>Released Year: </strong>{{movie.movieInfo_releaseYear}}<br>
+                    <strong>Quality:&nbsp;</strong>{{movie.movieInfo_quality}}<br>
+                    <strong>Size:&nbsp;</strong>{{movie.movieInfo_size}}<br>
+                    <strong>Format:&nbsp;</strong>{{movie.movieInfo_Format}}
                 </p>
                 <h4 class="movie-syn">: Movie synopsis/PLOT :</h4>
-                <p>The Raja Saab (Original title: The RajaSaab) A young heir embraces both his royal heritage and
-                    rebellious spirit as he rises to power, establishing unprecedented rules during his reign as Raja
-                    Saab.</p>
+                <p>{{movie.movieSynopsis}}</p>
                 <h4><strong>: SCREENSHOTS :</strong></h4>
-                <p><img decoding="async" src="https://imgbb.zip/ib/zUKo3uCszjElDDd_1767975493.jpg"></p>
+                <div class="screenshots-grid"
+                    *ngIf="movie.screenshots && movie.screenshots.length > 0; else noScreenshots">
+                    <!-- <div *ngFor="let screenshot of movie.screenshots">
+                        <p *ngIf="screenshot?.screenshotPath"><img decoding="async" [src]="'http://localhost:8080' + screenshot.screenshotPath" alt="Movie Screenshot"></p>
+                    </div> -->
+                    <img *ngFor="let screenshot of movie.screenshots"
+                        [src]="'http://localhost:8080' + screenshot.screenshotPath" alt="Movie Screenshot" />
+                </div>
+                <ng-template #noScreenshots>
+                    <p>No screenshots available</p>
+                </ng-template>
                 <hr>
-                <h4 style="text-align: center;">The Raja Saab 2026 [Hindi + Tamil + Telugu] HDTC 480p x264 [592 MB]</h4>
-                <p style="text-align: center;"><a href="https://nexdrive.top/genfxm/72471" target="_blank"
+                <h4 style="text-align: center;">{{movie.title}} {{movie.movieInfo_langauge}} HDTC 480p x264</h4>
+                <p style="text-align: center;"><a href="{{movie.downloadLink480}}" target="_blank"
                         rel="nofollow noopener"><button class="dwd-button">Download Now</button></a></p>
-                <h4 style="text-align: center;">The Raja Saab 2026 [Hindi + Tamil + Telugu] HDTC 720p x264 [1.36 GB]
+                <h4 style="text-align: center;">{{movie.title}} {{movie.movieInfo_langauge}} HDTC 720p x264
                 </h4>
-                <p style="text-align: center;"><a href="https://nexdrive.top/genfxm/72473" target="_blank"
+                <p style="text-align: center;"><a href="{{movie.downloadLink720}}" target="_blank"
                         rel="nofollow noopener"><button class="dwd-button">Download Now</button></a></p>
-                <h4 style="text-align: center;">The Raja Saab 2026 [Hindi + Tamil + Telugu] HDTC 1080p x264 [2.89 GB]
+                <h4 style="text-align: center;">{{movie.title}} {{movie.movieInfo_langauge}} HDTC 1080p x264
                 </h4>
-                <p style="text-align: center;"><a href="https://nexdrive.top/genfxm/72475" target="_blank"
+                <p style="text-align: center;"><a href="{{movie.downloadLink1080}}" target="_blank"
                         rel="nofollow noopener"><button class="dwd-button">Download Now</button></a></p>
                 <!-- CONTENT END 1 -->
             </div>
@@ -95,8 +102,7 @@
                 <span class="ct-module-title">Share with your friends </span>
                 <div data-icons-type="simple">
 
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmovies4u.pk%2Fthe-raja-saab-2026-hindi-hq-hdtc-1080p%2F"
-                        data-network="facebook" aria-label="Facebook" rel="noopener noreferrer nofollow">
+                    <a href="" data-network="facebook" aria-label="Facebook" rel="noopener noreferrer nofollow">
                         <span class="ct-icon-container">
                             <svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
@@ -105,8 +111,7 @@
                             </svg>
                         </span> </a>
 
-                    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmovies4u.pk%2Fthe-raja-saab-2026-hindi-hq-hdtc-1080p%2F&amp;text=The%20Raja%20Saab%202026%20%5BHindi%20%2B%20Tamil%20%2B%20Telugu%5D%20HQ%20HDTC%201080p"
-                        data-network="twitter" aria-label="X (Twitter)" rel="noopener noreferrer nofollow">
+                    <a href="" data-network="twitter" aria-label="X (Twitter)" rel="noopener noreferrer nofollow">
                         <span class="ct-icon-container">
                             <svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
@@ -124,8 +129,8 @@
                             </svg>
                         </span> </a>
 
-                    <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fmovies4u.pk%2Fthe-raja-saab-2026-hindi-hq-hdtc-1080p%2F&amp;title=The%20Raja%20Saab%202026%20%5BHindi%20%2B%20Tamil%20%2B%20Telugu%5D%20HQ%20HDTC%201080p"
-                        data-network="linkedin" aria-label="LinkedIn" rel="noopener noreferrer nofollow">
+                    <a href="https://www.linkedin.com/in/ankit-kumar-gurjar/" data-network="linkedin"
+                        aria-label="LinkedIn" rel="noopener noreferrer nofollow">
                         <span class="ct-icon-container">
                             <svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
@@ -134,8 +139,7 @@
                             </svg>
                         </span> </a>
 
-                    <a href="https://t.me/share/url?url=https%3A%2F%2Fmovies4u.pk%2Fthe-raja-saab-2026-hindi-hq-hdtc-1080p%2F&amp;text=The%20Raja%20Saab%202026%20%5BHindi%20%2B%20Tamil%20%2B%20Telugu%5D%20HQ%20HDTC%201080p"
-                        data-network="telegram" aria-label="Telegram" rel="noopener noreferrer nofollow">
+                    <a href="#" data-network="telegram" aria-label="Telegram" rel="noopener noreferrer nofollow">
                         <span class="ct-icon-container">
                             <svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
@@ -144,8 +148,7 @@
                             </svg>
                         </span> </a>
 
-                    <a href="whatsapp://send?text=https%3A%2F%2Fmovies4u.pk%2Fthe-raja-saab-2026-hindi-hq-hdtc-1080p%2F"
-                        data-network="whatsapp" aria-label="WhatsApp" rel="noopener noreferrer nofollow">
+                    <a href="#" data-network="whatsapp" aria-label="WhatsApp" rel="noopener noreferrer nofollow">
                         <span class="ct-icon-container">
                             <svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
@@ -168,81 +171,19 @@
 
                 <div class="ct-related-posts-items" data-layout="grid">
 
-                    <article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
-                        <div id="post-47099"
-                            class="post-47099 post type-post status-publish format-standard has-post-thumbnail hentry category-tamil category-south-indian">
-                            <a class="ct-media-container"
-                                href="https://movies4u.pk/parashakti-2026-tamil-ts-full-movie/"
-                                aria-label="Parashakti (2026) Tamil TS Full Movie"><img width="200" height="300"
-                                    src="https://movies4u.pk/wp-content/uploads/2026/01/Parashakti-2026-200x300.webp"
-                                    class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"
-                                    decoding="async"
-                                    srcset="https://movies4u.pk/wp-content/uploads/2026/01/Parashakti-2026-200x300.webp 200w, https://movies4u.pk/wp-content/uploads/2026/01/Parashakti-2026.webp 400w"
-                                    sizes="auto, (max-width: 200px) 100vw, 200px" itemprop="image"
-                                    style="aspect-ratio: 9/13;"></a>
-                            <h2 class="related-entry-title"><a
-                                    href="https://movies4u.pk/parashakti-2026-tamil-ts-full-movie/"
-                                    rel="bookmark">Parashakti (2026) Tamil TS Full Movie</a></h2>
+                    <article *ngFor="let relatedMovie of relatedMovies" itemscope="itemscope"
+                        itemtype="https://schema.org/CreativeWork">
+                        <div class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                            <a class="ct-media-container" [routerLink]="['/download', relatedMovie.id]"
+                                [attr.aria-label]="relatedMovie.title"><img width="200" height="300"
+                                    [src]="'http://localhost:8080' + relatedMovie.posterPath"
+                                    class="attachment-medium size-medium wp-post-image" [alt]="relatedMovie.title"
+                                    loading="lazy" decoding="async" itemprop="image" style="aspect-ratio: 9/13;"></a>
+                            <h2 class="related-entry-title"><a [routerLink]="['/download', relatedMovie.id]"
+                                    rel="bookmark">{{relatedMovie.title}}</a></h2>
                         </div>
                     </article>
 
-                    <article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
-                        <div id="post-47091"
-                            class="post-47091 post type-post status-publish format-standard has-post-thumbnail hentry category-hindi category-tv-show">
-                            <a class="ct-media-container"
-                                href="https://movies4u.pk/mtv-splitsvilla-season-16-hindi-tv-show-e02-added-1080p-720p-web-dl/"
-                                aria-label="MTV Splitsvilla (Season 16) Hindi TV-Show [E02 Added] 1080p | 720p WEB-DL"><img
-                                    width="200" height="300"
-                                    src="https://movies4u.pk/wp-content/uploads/2026/01/splitvila-200x300.webp"
-                                    class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"
-                                    decoding="async"
-                                    srcset="https://movies4u.pk/wp-content/uploads/2026/01/splitvila-200x300.webp 200w, https://movies4u.pk/wp-content/uploads/2026/01/splitvila.webp 300w"
-                                    sizes="auto, (max-width: 200px) 100vw, 200px" itemprop="image"
-                                    style="aspect-ratio: 9/13;"></a>
-                            <h2 class="related-entry-title"><a
-                                    href="https://movies4u.pk/mtv-splitsvilla-season-16-hindi-tv-show-e02-added-1080p-720p-web-dl/"
-                                    rel="bookmark">MTV Splitsvilla (Season 16) Hindi TV-Show [E02 Added] 1080p | 720p
-                                    WEB-DL</a></h2>
-                        </div>
-                    </article>
-
-                    <article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
-                        <div id="post-39185"
-                            class="post-39185 post type-post status-publish format-standard has-post-thumbnail hentry category-hindi category-tv-show">
-                            <a class="ct-media-container"
-                                href="https://movies4u.pk/laughter-chefs-unlimited-entertainment-season-3-hindi-tv-show-e01-added-480p-720p-1080p/"
-                                aria-label="Laughter Chefs Unlimited Entertainment (Season 3) Hindi TV-Show [E15 Added] 480p | 720p | 1080p"><img
-                                    width="200" height="300"
-                                    src="https://movies4u.pk/wp-content/uploads/2025/11/1000156663-200x300.webp"
-                                    class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"
-                                    decoding="async"
-                                    srcset="https://movies4u.pk/wp-content/uploads/2025/11/1000156663-200x300.webp 200w, https://movies4u.pk/wp-content/uploads/2025/11/1000156663.webp 300w"
-                                    sizes="auto, (max-width: 200px) 100vw, 200px" itemprop="image"
-                                    style="aspect-ratio: 9/13;"></a>
-                            <h2 class="related-entry-title"><a
-                                    href="https://movies4u.pk/laughter-chefs-unlimited-entertainment-season-3-hindi-tv-show-e01-added-480p-720p-1080p/"
-                                    rel="bookmark">Laughter Chefs Unlimited Entertainment (Season 3) Hindi TV-Show [E15
-                                    Added] 480p | 720p | 1080p</a></h2>
-                        </div>
-                    </article>
-
-                    <article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
-                        <div id="post-45520"
-                            class="post-45520 post type-post status-publish format-standard has-post-thumbnail hentry category-kannada-movie category-hindi">
-                            <a class="ct-media-container"
-                                href="https://movies4u.pk/mark-2025-kannada-hq-hdtc-full-movie/"
-                                aria-label="Mark 2025 Hindi + Kannada HQ HDTC Full Movie"><img width="200" height="300"
-                                    src="https://movies4u.pk/wp-content/uploads/2025/12/Mark-2025-200x300.webp"
-                                    class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"
-                                    decoding="async"
-                                    srcset="https://movies4u.pk/wp-content/uploads/2025/12/Mark-2025-200x300.webp 200w, https://movies4u.pk/wp-content/uploads/2025/12/Mark-2025.webp 400w"
-                                    sizes="auto, (max-width: 200px) 100vw, 200px" itemprop="image"
-                                    style="aspect-ratio: 9/13;"></a>
-                            <h2 class="related-entry-title"><a
-                                    href="https://movies4u.pk/mark-2025-kannada-hq-hdtc-full-movie/" rel="bookmark">Mark
-                                    2025 Hindi + Kannada HQ HDTC Full Movie</a></h2>
-                        </div>
-                    </article>
                 </div>
 
 

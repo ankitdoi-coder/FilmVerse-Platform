@@ -369,60 +369,128 @@ hr {
 /* =========================================
    7. RELATED MOVIES GRID
    ========================================= */
+// .ct-related-posts {
+//     margin-top: 40px;
+// }
+
+// .ct-related-posts h5.ct-module-title {
+//     font-size: 1.2rem;
+//     border-bottom: 2px solid var(--accent-red);
+//     display: inline-block;
+//     padding-bottom: 5px;
+//     margin-bottom: 20px;
+// }
+
+// .ct-related-posts-items {
+//     display: grid;
+//     /* Responsive grid: min 150px width per item */
+//     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+//     gap: 20px;
+// }
+
+// .ct-related-posts-items article {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+//     background: transparent;
+//     box-shadow: none;
+//     padding: 0;
+//     border-radius: 0;
+// }
+
+// .ct-related-posts-items img {
+//     width: 100%;
+//     border-radius: 4px;
+//     border: 1px solid #333;
+//     transition: opacity 0.2s;
+// }
+
+// .ct-related-posts-items img:hover {
+//     opacity: 0.8;
+// }
+
+// .related-entry-title {
+//     margin: 0;
+//     font-size: 18px;
+//     text-transform: capitalize;
+//     font-weight: 700;
+//     line-height: 2;
+// }
+
+// .related-entry-title a {
+//     color: #ddd;
+// }
+
+// .related-entry-title a:hover {
+//     color: var(--accent-red);
+// }
+
+/* Container for Related Movies */
 .ct-related-posts {
-    margin-top: 40px;
+    padding: 20px;
 }
 
-.ct-related-posts h5.ct-module-title {
-    font-size: 1.2rem;
-    border-bottom: 2px solid var(--accent-red);
-    display: inline-block;
-    padding-bottom: 5px;
+.ct-module-title {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
+    color: #fff; /* Adjust color */
 }
 
+/* Grid layout for related posts */
 .ct-related-posts-items {
     display: grid;
-    /* Responsive grid: min 150px width per item */
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.ct-related-posts-items article {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    border-radius: 0;
+/* Styling for individual movie items */
+.ct-related-posts .post {
+    background-color: #2b2b2b; /* Slight dark background for the posts */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.ct-related-posts-items img {
+/* Image hover effect */
+.ct-related-posts .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Thumbnail size and styling */
+.ct-media-container img {
     width: 100%;
-    border-radius: 4px;
-    border: 1px solid #333;
-    transition: opacity 0.2s;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
-.ct-related-posts-items img:hover {
-    opacity: 0.8;
-}
-
+/* Title styling */
 .related-entry-title {
-    margin: 0;
-    font-size: 18px;
-    text-transform: capitalize;
-    font-weight: 700;
-    line-height: 2;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* Title color */
+    margin-top: 10px;
+    text-align: center;
 }
 
 .related-entry-title a {
-    color: #ddd;
+    color: #fff;
+    text-decoration: none;
 }
 
 .related-entry-title a:hover {
-    color: var(--accent-red);
+    text-decoration: underline;
+}
+
+/* Additional responsiveness */
+@media (max-width: 768px) {
+    .ct-related-posts-items {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
 }
 
 /* =========================================
@@ -606,7 +674,7 @@ select {
     border: 7px solid;
     border-image: linear-gradient(90deg, #e93535, #f4c922) 2;
     border-radius: 2px;
-    box-shadow: 0 0 18px rgba(255, 122, 0, 0.6);
+    // box-shadow: 0 0 18px rgba(255, 122, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -665,4 +733,53 @@ select {
     border-left: 1px solid #222;
     border-bottom: 1px solid #222;
     transform: rotate(45deg);
+}
+
+/* ================================
+   SCREENSHOTS SECTION FIX
+   ================================ */
+
+h4 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* The screenshots grid container */
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 20px;
+}
+
+/* Remove default <p> spacing */
+.screenshots-grid p {
+  margin: 0;
+}
+
+/* Screenshot images */
+.screenshots-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.screenshots-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshots-grid img {
+    height: auto;
+  }
 }

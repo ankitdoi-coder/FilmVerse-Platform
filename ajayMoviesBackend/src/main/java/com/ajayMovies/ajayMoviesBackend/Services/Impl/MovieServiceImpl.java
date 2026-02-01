@@ -14,7 +14,7 @@ import com.ajayMovies.ajayMoviesBackend.Repository.MovieRepo;
 import com.ajayMovies.ajayMoviesBackend.Services.MovieService;
 
 @Service
-public class MovieServiceImpl  implements MovieService{
+public class MovieServiceImpl implements MovieService {
 
     @Autowired
     MovieRepo movieRepo;
@@ -22,8 +22,8 @@ public class MovieServiceImpl  implements MovieService{
     MovieMapper movieMapper;
 
     @Override
-    public Movie saveMovie(MovieDTO movieDTO,MultipartFile poster,List<MultipartFile> screenshots) throws IOException {
-        Movie savedMovie=movieRepo.save(movieMapper.DtoToMovie(movieDTO,poster,screenshots));
+    public Movie saveMovie(MovieDTO movieDTO, MultipartFile poster, List<MultipartFile> screenshots) throws IOException {
+        Movie savedMovie = movieRepo.save(movieMapper.DtoToMovie(movieDTO, poster, screenshots));
         return savedMovie;
     }
 
@@ -38,5 +38,11 @@ public class MovieServiceImpl  implements MovieService{
         }
         return movies;
     }
-    
+
+    @Override
+    public Movie getMovieByID(Long id) throws IOException {
+        Movie movie = movieRepo.findById(id).orElse(null);
+        return movie;
+    }
+
 }
