@@ -125,14 +125,14 @@ User Interface (Angular) → REST API (Spring Boot) → Database (MySQL) → Fil
 > 📷 **Preview Screenshots:** Check the `/preview` folder in the repository for detailed UI screenshots
 
 ### 🏠 Home Page
-![Home Page](preview/prev1.png)
+![Home Page](Preview/prev1.png)
 - Dark gradient theme for premium look  
 - Hover effects signal interactivity  
 - Fast visual scanning using poster cards
 - Responsive grid layout with smooth animations
 
 ### 📥 Movie Detail Page
-![Movie Detail Page](preview/prev2.png)
+![Movie Detail Page](Preview/prev2.png)
 - Highlights quality, language, and size  
 - Dynamic screenshot gallery builds user trust  
 - Clear download actions with multiple quality options
