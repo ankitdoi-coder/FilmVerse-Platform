@@ -41,11 +41,8 @@ A business owner can upload a movie once, attach posters, screenshots, multiple 
 **Frontend:**  
 http://localhost:4200
 
-
 **Backend API:**  
 http://localhost:8080/api
-
-
 
 ### What Users Can Do
 - Browse movies in a responsive poster grid  
@@ -72,7 +69,10 @@ http://localhost:8080/api
 - **Modern Angular Architecture:** Standalone Components + Signals  
 - **Reactive Forms:** Advanced validation for admin data integrity  
 - **Multipart Upload Handling:** JSON + images in a single request  
-- **Responsive Design:** Works flawlessly on mobile to 4K screens  
+- **Responsive Design:** Works flawlessly on mobile to 4K screens
+- **Animated UI Components:** Smooth entrance animations and micro-interactions
+- **Glassmorphism Design:** Modern visual effects with backdrop blur
+- **Mobile-First Approach:** Optimized hamburger menu with elegant close button  
 
 ### 🔐 Security & Performance
 - Server-side validation  
@@ -87,26 +87,29 @@ It demonstrates real production-level problem solving.
 
 ## 4️⃣ Tech Stack (With Purpose)
 
-| Technology             | Why It Was Chosen                                 |
-| ---------------------- | ------------------------------------------------- |
-| **Angular 17+**        | Modern, scalable frontend with strict typing      |
-| **TypeScript 5**       | Prevents runtime errors, improves maintainability |
-| **RxJS**               | Efficient async data handling                     |
-| **SCSS + Bootstrap 5** | Custom design with responsive grid system         |
-| **Spring Boot 3**      | Enterprise-grade backend framework                |
-| **Spring Data JPA**    | Clean database abstraction                        |
-| **MySQL**              | Structured, relational data storage               |
+| Technology | Why It Was Chosen |
+|----------|------------------|
+| **Angular 17+** | Modern, scalable frontend with strict typing |
+| **TypeScript 5** | Prevents runtime errors, improves maintainability |
+| **RxJS** | Efficient async data handling |
+| **SCSS + Bootstrap 5** | Custom design with responsive grid system |
+| **Spring Boot 3** | Enterprise-grade backend framework |
+| **Spring Data JPA** | Clean database abstraction |
+| **MySQL** | Structured, relational data storage |
 
 ---
 
 ## 5️⃣ System Architecture (Simple)
 
 ### High-Level Flow
+```
+User Interface (Angular) → REST API (Spring Boot) → Database (MySQL) → File System
+```
 
 ### API Design
-- `POST /save-movie` → Upload movie + media assets  
-- `GET /get-all-movies` → Fetch movie listings  
-- `GET /get-by-id/{id}` → Detailed movie view  
+- `POST /api/save-movie` → Upload movie + media assets  
+- `GET /api/get-all-movies` → Fetch movie listings  
+- `GET /api/get-by-id/{id}` → Detailed movie view  
 
 ### Data Flow
 1. Admin fills movie form  
@@ -119,20 +122,34 @@ It demonstrates real production-level problem solving.
 
 ## 6️⃣ Screenshots / UI Explanation
 
+> 📷 **Preview Screenshots:** Check the `/preview` folder in the repository for detailed UI screenshots
+
 ### 🏠 Home Page
+![Home Page](preview/prev1.png)
 - Dark gradient theme for premium look  
 - Hover effects signal interactivity  
-- Fast visual scanning using poster cards  
+- Fast visual scanning using poster cards
+- Responsive grid layout with smooth animations
 
 ### 📥 Movie Detail Page
+![Movie Detail Page](preview/prev2.png)
 - Highlights quality, language, and size  
-- Screenshot gallery builds user trust  
-- Clear download actions  
+- Dynamic screenshot gallery builds user trust  
+- Clear download actions with multiple quality options
+- Social sharing integration
 
-### 🛠️ Admin Panel
-- Single form handling text + multiple files  
-- Validation feedback during upload  
-- Designed for real admin workflows  
+### 🔐 Admin Login Page
+![Admin Login Page](preview/admin-login-page.png)
+- **Cinematic Design:** Movie-themed background with overlay effects
+- **Animated Branding:** Sequential text animations with gradient effects
+- **Modern Form Design:** Floating labels and glassmorphism styling
+- **Responsive Layout:** Optimized for all screen sizes
+
+### 🛠️ Admin Dashboard
+![Admin Dashboard](preview/admin-dashboard.png)
+- **File Upload System:** Drag-and-drop poster and screenshot management
+- **Real-time Validation:** Instant feedback for form inputs
+- **Content Management:** Streamlined workflow for movie catalog updates  
 
 ---
 
@@ -146,18 +163,21 @@ It demonstrates real production-level problem solving.
 ### Frontend Setup
 ```bash
 git clone https://github.com/ankitdoi-coder/ajay-movies.git
-cd src
+cd FrontEnd
 npm install
 ng serve
 ```
-### Backend Setup
 
+### Backend Setup
 Configure application.properties with MySQL credentials
 
 Run via IDE or:
 ```bash
+cd ajayMoviesBackend
 mvn spring-boot:run
 ```
+
+---
 
 ## 8️⃣ Challenges & Learnings (Senior-Level Insight)
 
@@ -173,59 +193,74 @@ mvn spring-boot:run
 **Challenge:** Serving uploaded images without cloud storage  
 **Solution:** Spring Boot static resource mapping with controlled access
 
+### 4. Admin Login Page Design
+**Challenge:** Creating a professional, cinematic login experience  
+**Solution:** Implemented glassmorphism design with animated text sequences, responsive layout, and modern UI patterns
+
 ### What This Proves
 - I can design real-world architectures
 - I understand production constraints
 - I write maintainable, scalable code
 
+---
+
 ## 9️⃣ Future Enhancements
 
-- JWT Authentication for admin access
-- Cloud storage (AWS S3 / Firebase)
+### 🔒 Authentication & Security
+- **JWT Authentication:** Secure admin login system (in development)
+- **Role-based Access Control:** Different permission levels for admins
+- **Session Management:** Secure token handling and refresh
+
+### ☁️ Infrastructure & Performance
+- Cloud storage integration (AWS S3 / Firebase)
 - Advanced filtering (Genre, Year, Language)
 - Image lazy loading for better performance
-- User accounts & watchlists
+- CDN integration for global content delivery
+
+### 📱 User Experience
+- User accounts & personal watchlists
+- Advanced search with filters
+- Movie recommendations engine
+- Progressive Web App (PWA) features
+
+---
 
 ## 🔟 About the Developer (Conversion Section)
 
-Hi, I’m Ankit Kumar Gurjar, a Full-Stack Java Developer specializing in building business-ready web applications, not just demos.
+Hi, I'm **Ankit Kumar Gurjar**, a Full-Stack Java Developer specializing in building business-ready web applications, not just demos.
 
-What I Bring
+### What I Bring
+- Clean backend architecture (Spring Boot)
+- Modern frontend design (Angular)
+- Scalable, maintainable code
+- Real-world problem solving mindset
 
-Clean backend architecture (Spring Boot)
+### Open To
+- Freelance projects
+- Custom website development
+- Full-stack application builds
+- Long-term collaborations
 
-Modern frontend design (Angular)
-
-Scalable, maintainable code
-
-Real-world problem solving mindset
-
-Open To
-
-Freelance projects
-
-Custom website development
-
-Full-stack application builds
-
-Long-term collaborations
+---
 
 ## 1️⃣1️⃣ Contact & Portfolio
 
-GitHub: https://github.com/ankitdoi-coder
+**GitHub:** https://github.com/ankitdoi-coder
 
-LinkedIn: https://linkedin.com/in/ankit--gurjar
+**LinkedIn:** https://linkedin.com/in/ankit--gurjar
 
-Email: ankitdoi82@gmail.com
+**Email:** ankitdoi82@gmail.com
 
-WhatsApp: +91 9352134907
+**WhatsApp:** +91 9352134907
 
-💼 Want a website like this for your business or idea?
+💼 Want a website like this for your business or idea?  
 📲 Contact me directly on WhatsApp for fast discussion and custom development.
 
-🚀 Final Note
+---
+
+## 🚀 Final Note
 
 This project reflects my ability to deliver production-ready systems that balance logic, performance, and design.
 
-If you’re a recruiter or client looking for someone who can handle both backend complexity and frontend experience —
-Let’s build something powerful together.
+If you're a recruiter or client looking for someone who can handle both backend complexity and frontend experience —  
+**Let's build something powerful together.**
