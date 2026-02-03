@@ -132,7 +132,7 @@ User Interface (Angular) → REST API (Spring Boot) → Database (MySQL) → Fil
 - Responsive grid layout with smooth animations
 
 ### 📥 Movie Detail Page
-![Movie Detail Page](Preview/prev2.png)
+![Movie Detail Page](Preview/Prev2.png)
 - Highlights quality, language, and size  
 - Dynamic screenshot gallery builds user trust  
 - Clear download actions with multiple quality options
