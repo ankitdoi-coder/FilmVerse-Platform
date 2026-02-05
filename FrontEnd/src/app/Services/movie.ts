@@ -7,19 +7,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Movie {
-  private baseUrl="http://localhost:8080/api";
-  
-  constructor(private http:HttpClient){};
+  private baseUrl = "http://localhost:8080/api";
 
-  saveMovie(movie:FormData):Observable<Moviez>{
-    return this.http.post<Moviez>(`${this.baseUrl}/save-movie`,movie)
+  constructor(private http: HttpClient) { };
+
+  saveMovie(movie: FormData): Observable<Moviez> {
+    return this.http.post<Moviez>(`${this.baseUrl}/save-movie`, movie)
   }
 
-  getAllMovies():Observable<Moviez[]>{
+  getAllMovies(): Observable<Moviez[]> {
     return this.http.get<Moviez[]>(`${this.baseUrl}/get-all-movies`)
   }
 
-  getMovieById(id:any):Observable<Moviez>{
+  getMovieById(id: any): Observable<Moviez> {
     return this.http.get<Moviez>(`${this.baseUrl}/get-by-id/${id}`)
+  }
+
+
+
+
+  //Login Service
+  login(data:{email:string,password:string}){
+    return this.http.post<any>(`${this.baseUrl}/auth/login`,data)
   }
 }

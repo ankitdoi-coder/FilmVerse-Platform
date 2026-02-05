@@ -40,18 +40,17 @@
                 {{errorMessage}}
             </div> -->
 
-            <!-- #loginForm="ngForm" -->
-            <form (ngSubmit)="login()">
+            <form [formGroup]="loginFormGrp" (ngSubmit)="login()">
 
-                <!-- Username [(ngModel)]="loginData.username"-->
+                <!-- Email -->
                 <div class="input-group">
-                    <input type="text" name="username" required aria-label="Username" />
-                    <label>Username / Email</label>
+                    <input type="email" formControlName="email" required aria-label="Email" />
+                    <label>Email</label>
                 </div>
 
-                <!-- Password  [(ngModel)]="loginData.password"-->
+                <!-- Password -->
                 <div class="input-group password-group">
-                    <input [type]="showPassword ? 'text' : 'password'" name="password" required aria-label="Password" />
+                    <input [type]="showPassword ? 'text' : 'password'" formControlName="password" required aria-label="Password" />
                     <label>Password</label>
 
                     <span class="toggle-password" (click)="togglePassword()">
@@ -59,23 +58,15 @@
                     </span>
                 </div>
 
-                <!-- Remember Me [(ngModel)]="rememberMe" -->
-                <div class="options">
-                    <label>
-                        <input type="checkbox" name="rememberMe" />
-                        Remember Me
-                    </label>
-
-                    <a href="#">Forgot Password?</a>
+                <!-- Error Message -->
+                <div class="error-box" *ngIf="errorMessage">
+                    {{errorMessage}}
                 </div>
 
                 <!-- Login Button -->
-                <button class="login-btn" [disabled]="loading">
-
+                <button type="submit" class="login-btn" [disabled]="loading || loginFormGrp.invalid">
                     <span *ngIf="!loading">Login</span>
-
                     <div *ngIf="loading" class="spinner"></div>
-
                 </button>
 
             </form>

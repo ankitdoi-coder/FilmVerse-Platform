@@ -1,46 +1,64 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validator, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Movie } from '../Services/movie';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-admin-login',
-  imports: [],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './admin-login.html',
   styleUrl: './admin-login.scss',
 })
 export class AdminLogin {
 
-  //form Froup name
   loginFormGrp: any;
+  showPassword: boolean = false;
+  loading: boolean = false;
+  errorMessage = '';
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
-    private movieService: Movie
+    private authService: AuthService
   ) {
     this.loginFormGrp = fb.group({
-      userName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
   }
 
-
-
-  showPassword: boolean = false;
-  loading: boolean = false;
-  rememberMe: boolean = false;
-  errorMessage = '';
-
   togglePassword() {
     this.showPassword = !this.showPassword;
-  };
+  }
 
   login() {
+    console.log('Login method called');
+    console.log('Form valid:', this.loginFormGrp.valid);
+    console.log('Form values:', this.loginFormGrp.value);
+    
+    if (this.loginFormGrp.invalid) {
+      this.errorMessage = 'Please fill all required fields';
+      console.log('Form is invalid');
+      return;
+    }
+
     this.loading = true;
     this.errorMessage = '';
+    console.log('Making login request...');
 
-    //first create service for the jwt token and all then come here 
-  };
-
+    this.authService.login(this.loginFormGrp.value).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        this.authService.saveToken(response.token);
+        this.loading = false;
+        this.router.navigate(['/admin']);
+      },
+      error: (error) => {
+        console.error('Login failed:', error);
+        this.loading = false;
+        this.errorMessage = 'Invalid credentials';
+      }
+    });
+  }
 }

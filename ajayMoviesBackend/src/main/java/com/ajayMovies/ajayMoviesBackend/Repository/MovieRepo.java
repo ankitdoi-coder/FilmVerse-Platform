@@ -7,5 +7,4 @@ import com.ajayMovies.ajayMoviesBackend.Entity.Movie;
 
 @Repository
 public interface  MovieRepo extends JpaRepository<Movie, Long> {
-    
 }
