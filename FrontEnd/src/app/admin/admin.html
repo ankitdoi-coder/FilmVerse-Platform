@@ -1,6 +1,19 @@
 <section>
    <div class="container">
-      <h1>Admin Panel</h1>
+      <!-- Professional Admin Header -->
+      <header class="admin-header">
+         <div class="header-left">
+            <h1>🎬 Admin Dashboard</h1>
+            <span class="subtitle">Content Management System</span>
+         </div>
+         <div class="header-right">
+            <button type="button" class="logout-btn" (click)="logout()">
+               <span class="logout-icon">🚪</span>
+               <span>Logout</span>
+            </button>
+         </div>
+      </header>
+      
       <div class="addMovieForm">
          <form [formGroup]="movieFormGroup" (ngSubmit)="submitForm()">
             <!-- Basic Info -->

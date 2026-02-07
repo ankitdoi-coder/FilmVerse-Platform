@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Movie } from '../Services/movie';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
 
 import { RouterLink } from "@angular/router";
 
@@ -24,7 +25,8 @@ export class Admin {
     private fb: FormBuilder,
     private movieService: Movie,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {
     this.movieFormGroup = this.fb.group({
       title: ['', [Validators.required]],
@@ -53,6 +55,8 @@ export class Admin {
 
 
 submitForm() {
+  console.log('Token:', localStorage.getItem('token'));
+  
   // Debugging: If this block hits, the form is invalid. Check your console.
   if (this.movieFormGroup.invalid || !this.poster || this.screenShots.length === 0) {
     console.error("Form is invalid. Please check the following fields:");
@@ -112,4 +116,9 @@ submitForm() {
     error: err => console.error('Error saving movie:', err)
   });
 }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/admin-login']);
+  }
 }
